@@ -42,7 +42,7 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000;
 
-app.post('/cam', async (req, res) => {
+app.get('/cam', async (req, res) => {
   await camChecker()
   res.send('Cam has Checked')
 })
