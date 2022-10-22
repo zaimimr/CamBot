@@ -40,9 +40,9 @@ const camChecker = async () => {
 
 const express = require('express')
 const app = express()
-const port = 8000;
+const port = process.env.PORT || 3000;
 
-app.get('/', async (req, res) => {
+app.post('/cam', async (req, res) => {
   await camChecker()
   res.send('Cam has Checked')
 })
@@ -52,5 +52,5 @@ client.on('ready', (bot) => {
 })
 
 
-app.listen(process.env.PORT || port, () => console.log(`Hello world app listening on port ${port}!`))
+app.listen(port, () => console.log(`Hello world app listening on port ${port}!`))
 client.login(token);
