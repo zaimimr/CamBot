@@ -40,8 +40,8 @@ const camChecker = async () => {
 
 const express = require('express')
 const app = express()
-const port = 3000;
-// respond with "hello world" when a GET request is made to the homepage
+const port = 8000;
+
 app.get('/', async (req, res) => {
   await camChecker()
   res.send('Cam has Checked')
@@ -52,5 +52,5 @@ client.on('ready', (bot) => {
 })
 
 
-app.listen(port, () => console.log(`Hello world app listening on port ${port}!`))
+app.listen(process.env.PORT || port, () => console.log(`Hello world app listening on port ${port}!`))
 client.login(token);
